@@ -14,8 +14,9 @@
  */
 function length(string) {
     // YOUR CODE BELOW HERE //
-    
 
+    //return the string's length using .length property
+    return string.length;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -26,8 +27,15 @@ function length(string) {
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
 
-
-
+    //create variable output with value of empty string
+    let output = '';
+    //use for loop to iterate over string elements
+    for (let i = 0; i < string.length; i++){
+        //concatinate each value in string to output
+        output += string[i].toLowerCase();
+    }
+    //return output string
+    return output;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -36,9 +44,15 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+    //craete variable output with value of empty string
+    let output = '';
+    //use for loop to iterate over string elements
+    for (let i = 0; i < string.length; i++){
+        //concatinate each value in string to current output string, in upper case
+        output += string[i].toUpperCase();
+    }
+    //return output string
+    return output;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -57,9 +71,22 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
-
-
+    //create variable output with value of an empty string
+    let output = '';
+    //create variable strArray that uses split array to seperate values in string parameter
+    let strArray = string.split(' ');
+    //use for loop to iterate over elements in strArray
+    for(let i = 0; i < strArray.length; i++) {
+        if(i === strArray.length - 1) {
+            output += strArray[i].toLowerCase();
+        }
+        //else, concat strArray[i] into lowercase
+        else{
+            output += strArray[i].toLowerCase() + '-';    
+        }
+    }
+    //return output string
+    return output;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -78,7 +105,13 @@ function toDashCase(string) {
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-    
+    //determine if string[0] equals char
+    if (string[0].toLowerCase() === char.toLowerCase()) {
+       //if condition returns true, return the Boolean true
+       return true; 
+    }
+    //return false
+    return false;    
 
     // YOUR CODE ABOVE HERE //
 }
@@ -98,7 +131,13 @@ function beginsWith(string, char) {
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
 
-
+    //determine if string[string.length - 1] equals char, make case insenstive by using toUpperCase method
+    if(string[string.length - 1].toUpperCase() === char.toUpperCase()){
+        //return value of true
+        return true;
+    }
+    //otherwise, return false
+    return false;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -111,7 +150,8 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //return template literal of string one and two
+    return (`${stringOne}${stringTwo}`);
 
     // YOUR CODE ABOVE HERE //
 }
@@ -130,7 +170,8 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
 
-
+    //return args joined togther using the join method
+    return args.join('');
     // YOUR CODE ABOVE HERE //
 }
 
@@ -146,7 +187,13 @@ function join(stringOne, stringTwo) {
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //determine if stringOne's length is greater than stringTwo length's 
+    if(stringOne.length > stringTwo.length) {
+        //if so, return stringOne
+        return stringOne;
+    }  
+    //return stringTwo
+    return stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -161,7 +208,8 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //use localeCompare to compare from stringTwo => stringOne and return number value 
+    return stringTwo.localeCompare(stringOne);
 
     // YOUR CODE ABOVE HERE //
 }
@@ -177,8 +225,8 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
-
+    //use localeCompare to return comparing from stringOne => stringTwo and return number value
+    return stringOne.localeCompare(stringTwo);
 
     // YOUR CODE ABOVE HERE //
 }

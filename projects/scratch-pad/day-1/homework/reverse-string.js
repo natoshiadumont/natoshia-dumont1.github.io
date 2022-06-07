@@ -21,15 +21,20 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
+
+    //create variable ouput with value of empty string
+    let output = '';
+    //use for loop to iterate over each element in input string, in reverse
+    for(let i = input.length - 1; i >= 0; i--) {
+      //use addition assignment operator (+=) to concatenate current input string with new element in string
+      output += input[i];
+    }
+    //return final ouput string
+    console.log(output);
+    return output;
     
     // YOUR CODE GOES ABOVE HERE //
 }
-
-
-
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
