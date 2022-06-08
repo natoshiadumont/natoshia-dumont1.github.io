@@ -14,10 +14,8 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //use Array.isArray method to return boolean value determining if value is an array
+    return Array.isArray(value);
     // YOUR CODE ABOVE HERE //
 }
 
@@ -31,10 +29,24 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //determine if typeof value is an object
+    if (typeof value === 'object') {
+        //determine if value is an array; if so, return false
+        if (Array.isArray(value)) {
+            return false;
+        }
+        //determine if value is an instance of Date; if so, return false
+        else if (value instanceof Date) {
+            //return false
+            return false;
+        }
+        //determine if value is not null
+        else if (value !== null) {
+            return true;
+        }
+    }
+    //return the value false
+    return false;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -46,11 +58,24 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //determine if Array.isArray; if so, return true;
+    if (Array.isArray(value)) {
+        return true;
+}
+else if (typeof value === 'object') {
+    //determine if value is an instance of Date; if so, return false
+    if (value instanceof Date === true) {
+        //return false
+        return false;
+    }
+    //determine if value is not null
+    else if (value !== null) {
+        return true;
+    }   
+}
+//return false for values that do not meet any conditions    
+return false;
+// YOUR CODE ABOVE HERE //
 }
 
 /**
@@ -74,10 +99,39 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //use typeof method to determine if value is a string; if so return 'string'
+    if (typeof value === 'string') {
+        return 'string';
+    }
+    //use isArray method to determine if value is an array; if so, return '
+    else if (Array.isArray(value)) {
+        return 'array';
+    }
+    //use typeof method to determine if value is a null; if so return 'null'
+    else if (value === null) {
+        return 'null';
+    }
+    //use type of method to determine if value is a number; if so, return 'number'
+    else if (typeof value === 'number') {
+        return 'number';
+    }
+    //use typeof method to determine if value is a undefined, if so, return 'undefined'
+    else if (typeof value === undefined) {
+        return 'undefined';
+    }
+    //determine if type of value is a boolean; if so, return 'boolean'
+    else if (typeof value === 'boolean') {
+        return 'boolean';
+    }
+    //determine if value is funciton; if so, return function
+    else if (typeof value === 'function') {
+        return 'function';
+    }
+    //determine if value is an instanceof Date; if so, return 'date'
+    else if (value instanceof Date === true) {
+        return 'date';
+    }
+   return 'object';
     // YOUR CODE ABOVE HERE //
 }
 

@@ -35,7 +35,9 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+    //create output variable with value of object literal
+    //push an 'id' property with value of first id parameter into output object
+    //push a 'nameFirst' key value pair with nameFirst parameter as it's value
 } 
 
 

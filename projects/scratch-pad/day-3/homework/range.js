@@ -23,10 +23,26 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+    //create an output array with value of empty array
+    let output = [];
+    //determine if start is less than end
+    if (start < end) {
+        //use for loop to push value of start into output array, 
+        //stop once start = end then increment start
+        for (let count = start; count <= end; count++) {
+            output.push(count);
+        }
+    }
+    //determine if start is greater than end
+    else if (start > end) {
+        //use for loop to push value of end into output array, 
+        //stop once count equals end, then decrement start
+        for (let count = start; count >= end; count--) {
+            output.push(count);
+        }
+    }
+    //return output array
+    return output;
     // YOUR CODE GOES ABOVE HERE //
 }
 
