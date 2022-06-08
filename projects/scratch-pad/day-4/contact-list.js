@@ -36,8 +36,15 @@
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
     //create output variable with value of object literal
+    let output = {};
     //push an 'id' property with value of first id parameter into output object
-    //push a 'nameFirst' key value pair with nameFirst parameter as it's value
+    output.id = id;
+    //push a 'nameFirst' key-value pair with nameFirst parameter as it's value
+    output.nameFirst = nameFirst;
+    //push a 'nameLast' key value pair with nameLast parameter as it's value
+    output.nameLast = nameLast;
+    //return output object
+    return output;
 } 
 
 
@@ -45,16 +52,59 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact) {
+            contacts.push(contact);
+        },
+        findContact: function(fullName) {
+            //use for loop to iterate through contacts array
+            for (let i = 0; i < contacts.length; i++) {
+               //determine if contacts[i].nameFirst equals nameSplit[0] and contacts[i].nameLast equals nameSplit[1]
+                if (`${contacts[i].nameFirst} ${contacts[i].nameLast}` === fullName) {
+                 //if condition is true, return contacts[i];
+                 return contacts[i];     
+                }
+            }
+            //return message undefined if contacts is not found
+            return undefined;           
+        }, 
+        removeContact: function(obj) {
+            //create an index variable; use indexOf method to determine the index of the given object 
+            //argument in contacts array
+            //index will return Number -1 if it is not found in the contacts array,
+            // otherwise it will the index of that value
+            let index = contacts.indexOf(obj);
+            //determine if index is equal is greater than -1 (this means this element does exist in this array)
+            if (index > -1) {
+            //use splice method to remove element from contacts array
+            contacts.splice(index, 1);   
+            }
+        },
+        printAllContactNames: function() {
+            //create output variable with value of empty string
+            let output = '';
+            //use for loop to iterate over the contacts array
+            for (let i = 0; i < contacts.length; i++) {
+                //determine if i === contacts.length - 1
+                if (i === contacts.length - 1) {
+                    //push contact first and last name into ouput
+                    output += (contacts[i].nameFirst + ' ' + contacts[i].nameLast);
+                }
+                else {
+                    //otherwise, print first and last name with no new line
+                    output += (contacts[i].nameFirst + ' ' + contacts[i].nameLast + '\n');
+                }
+            }
+            return output;
         }
     }
 }
-
 
 
 
