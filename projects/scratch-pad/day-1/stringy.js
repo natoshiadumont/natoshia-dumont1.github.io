@@ -209,7 +209,7 @@ function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
     //use localeCompare to compare from stringTwo => stringOne and return number value 
-    return stringTwo.localeCompare(stringOne);
+    return stringOne.localeCompare(stringTwo);
 
     // YOUR CODE ABOVE HERE //
 }
@@ -226,7 +226,7 @@ function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
     //use localeCompare to return comparing from stringOne => stringTwo and return number value
-    return stringOne.localeCompare(stringTwo);
+    return stringTwo.localeCompare(stringOne);
 
     // YOUR CODE ABOVE HERE //
 }
