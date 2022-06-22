@@ -20,7 +20,9 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = function(value){
+    return value;
+}
 
 /** _.typeOf
 * Arguments:
@@ -41,7 +43,37 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+_.typeOf = function(value) {
+    //determine if value is array; if so, return 'array'
+    if(Array.isArray(value)) {
+        return 'array';
+    }
+    //determine if value is a string; if so, return 'string'
+    else if(typeof value === 'string'){
+        return 'string';
+    }
+    //determine if value is a number; if so, return 'number'
+    else if(typeof value === 'number') {
+        return 'number';
+    }
+    //determine if value is undefined; if so, return 'undefined'
+    else if(typeof value === 'undefined'){
+        return 'undefined';
+    }
+    //determine if value is a boolean; if so, return 'boolean'
+    else if(typeof value === 'boolean'){
+        return 'boolean';
+    }
+    //determine if value is equal to null' of so, return strng 'null'
+    else if(value === null){
+        return 'null';
+    }
+    //determine if value is a funciton; if so, return 'funciton'
+    else if(typeof value === 'function') {
+        return 'function';
+    }
+    return 'object';
+}
 
 /** _.first
 * Arguments:
@@ -60,7 +92,31 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
+_.first = function(array,  num){
+    //create an output variable with value of empty array
+    let output = [];
+    //determine if array parameter is an array
+    if(!(Array.isArray(array))){
+        return [];
+    }
+    //determine if there is not an number parameter
+    else if(!num || typeof num !== 'number'){
+        return array[0];
+    }
+    //if num is longer than the array's length, return entire array
+    else if(num > array.length){
+        return array;
+    }
+    else{
+        //use for loop to iterate through array 
+        for(let i = 0; i <= num - 1; i++) {
+            //push value of array[i] into array
+            output.push(array[i]);
+        }    
+    }
+    //return final output array
+    return output;
+}
 
 /** _.last
 * Arguments:
@@ -79,7 +135,32 @@ var _ = {};
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = function(array, num){
+    //create output variable with value of empty Array
+    let output = [];
+    //determine if array parameter is not an array; if so, return empty array
+    if(!(Array.isArray) || num < 1){
+        return [];
+    }
+    //determine if num is not a number; if so, return just the last element in Array
+    else if(typeof num !== 'number'){
+        return array[array.length - 1];
+    }
+    //determine if num is greater than array's length; if so, return entire array
+    else if(num > array.length){
+        return array;
+    }
+    //else push from last element into output array according to give num
+    else{
+        //use for loop to iterate through array backwards
+        for(let i = array.length - 1; i >= num - 1; i--){
+            //unshift elements of array into output array
+            output.unshift(array[i]);
+        }
+    }
+    //return final output object
+    return output;
+}
 
 /** _.indexOf
 * Arguments:
@@ -96,7 +177,17 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
+_.indexOf = function(array, val) {
+    //use for lop to iterate through array
+    for(let i = 0; i < array.length; i++){
+        //determine if array[i] === value; if so, return value of i
+        if(array[i] === val){
+            return i;
+        }
+    }
+    //return -1
+    return -1;
+}
 
 /** _.contains
 * Arguments:
@@ -112,7 +203,14 @@ var _ = {};
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = function(array, val){
+    //create output switch with initial value of false
+    let output;
+    //use includes method in ternary operator to determine if a give value is in an array
+    array.includes(val) ? output = true : output = false;
+    //return final output Boolean
+    return output;
+}
 
 /** _.each
 * Arguments:
@@ -130,6 +228,25 @@ var _ = {};
 *      -> should log "a" "b" "c" to the console
 */
 
+_.each = function(collection, func) {
+    //determine if collection is an array
+    if(Array.isArray(collection)){
+        //use for loop to iterate through elements of collection
+        for(let i = 0; i < collection.length; i++){
+            //call function once for each elements with arguments: element, index, collection
+            func(collection[i], i, collection);
+        }    
+    }
+    //else, use for in loop to iterate though collection properties
+    else{
+        //call func on each property of key with arguments: value, key, collection
+        for(let key in collection) {
+            func(collection[key], key, collection);
+        }
+    }
+        
+
+}
 
 /** _.unique
 * Arguments:
@@ -140,7 +257,20 @@ var _ = {};
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-
+_.unique = function(array){
+    //use output variable with value of empty array
+    let output = [];
+    //use for loop to iterate over array argument
+    for(let i = 0; i < array.length; i++){
+        //determine if i is strictly equal to the value of indexOf a given element
+        if(i === _.indexOf(array, array[i])){
+            //if so, push element into output array
+            output.push(array[i]);
+        }
+    }
+    //return final output array
+    return output;
+}
 
 /** _.filter
 * Arguments:
@@ -157,7 +287,20 @@ var _ = {};
 * Extra Credit:
 *   use _.each in your implementation
 */
-
+_.filter = function(array, func){
+    //create output array with value of empty array
+    let output = [];
+    //use for loop to iterate through array
+    for(let i = 0; i < array.length; i++){
+        //determine if current array element returns true when passed through func
+        if(func(array[i], i, array) === true){
+            //push current array into the output array
+            output.push(array[i]);
+        }
+    }
+    //return output array
+    return output;
+}
 
 /** _.reject
 * Arguments:
@@ -171,7 +314,20 @@ var _ = {};
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
+_.reject = function(array, func){
+    //create output array with value of empty array
+    let output = [];
+    //use for loop to iterate through array
+    for(let i = 0; i < array.length; i++){
+        //determine if the current element returns false if passed through func
+        if(func(array[i], i, array) === false){
+            //push current element into output array
+            output.push(array[i]);
+        }
+    }
+    //return output
+    return output;
+}
 
 /** _.partition
 * Arguments:
@@ -191,7 +347,17 @@ var _ = {};
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = function(array, func){
+    //create output variable with value of empty array
+    let output = [];
+    //create variable named truthy with value of called function using filter
+    let truthy = _.filter(array, func);
+    //create variable named falsy with value of reject function called with argumetns array and func
+    let falsy = _.reject(array, func);
+    output.push(truthy, falsy);
+    //return output array 
+    return output;
+}
 
 /** _.map
 * Arguments:
@@ -209,6 +375,32 @@ var _ = {};
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, func){
+    
+    //determine if collection is an Array
+    if(Array.isArray(collection)){
+        //create an output variable named output with value of emput array
+        let output = [];
+        //use for loop to iterate through collection
+        for(let i = 0; i < collection.length; i++){
+            //call func on each element of collection using arguments: collection[i], i, collection 
+            output.push(func(collection[i], i, collection));
+        } 
+        //return output array
+        return output;   
+    }
+    //otherwise, collection will be an Object
+    else{
+        //create an output variable with value of an empty object
+        let output = [];
+        //use for in loop to iterate through key/value pairs in collection
+         for(let key in collection){
+            //call func using following arguments: collection[key], key, collection
+            output.push(func(collection[key], key, collection));
+         }
+        return output;  
+    }
+}
 
 /** _.pluck
 * Arguments:
@@ -220,7 +412,20 @@ var _ = {};
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+_.pluck = function(array, property){
+    //create variable with value of empty array
+    let output = [];
+    //use for loop to iterate through object
+    for(let i = 0; i < array.length; i++){
+        //determine if object contains key of property argument
+        //in current element into output array
+        if(array[i].hasOwnProperty(property)){
+            output.push(array[i][property]);
+        }
+    }
+    //return output array
+    return output;
+}
 
 /** _.every
 * Arguments:
@@ -242,7 +447,9 @@ var _ = {};
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = function(collection, func){
+    
+}
 
 /** _.some
 * Arguments:
