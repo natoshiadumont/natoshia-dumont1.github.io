@@ -154,14 +154,14 @@ var topThreeTags =  function(array){
             }
         }     
     }
-  //create an input array that sorts tagsObj.entries array and puts it into decending order (sort method using index 1?)
+  //create an input array that sorts tagsObj.entries array and puts it into decending order (sort method using index 1, fingers crossed?)
     let input = Object.entries(tagsObj).sort(function(a, b){return b[1]-a[1]});
   // console.log(input);
     let results = [];
     for(let i = 0; i <= 2; i++){
       results.push(input[i][0]);
     }
-  //return an array containing input's first three elements' zeroth index (basically the name of the top tags!!!!!) fingers crossed
+  //return resutls array!!!!! WOOT
   return results;
 };
 
