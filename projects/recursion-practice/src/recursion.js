@@ -476,7 +476,22 @@ var flatten = function(arrays) {
 
 // 30. Given a string, return an object containing tallies of each letter.
 // letterTally('potato'); // {'p':1, 'o':2, 't':2, 'a':1}
-var letterTally = function(str, obj) {
+var letterTally = function(str, obj = {}) {
+  //base
+  if(str.length === 0){
+    return obj;
+  }
+
+  //recursion 
+  //if an object property by that name doesn't exist, create one in obj
+  if(!obj.hasOwnProperty(str[0].toLowerCase())){
+    obj[str[0].toLowerCase()] = 1;
+    return letterTally(str.slice(1), obj);
+  }
+  else{
+    obj[str[0].toLowerCase()]++;
+    return letterTally(str.slice(1), obj);
+  }
 };
 
 // 31. Eliminate consecutive duplicates in a list.  If the list contains repeated
@@ -484,26 +499,53 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, newList = []) {
+  //base
+  //if list.length equals zero, return newList
+  if(list.length === 0){
+    return newList;
+  }
+  //recursion
+  //determine if list[0] DOES NOT equal newList[newlist.length - 1];
+  if(list[0] !== newList[newList.length - 1]){
+    newList.push(list[0]);
+  }
+  //return function call with list's first element sliced off
+  return compress(list.slice(1), newList);
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
 // itself.
 // Example: augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
 var augmentElements = function(array, aug) {
+
 };
 
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, output = []) {
+  //BASE
+  if(array.length === 0){
+    return output;
+  }
+  //RECRUSION
+  //determine if array[0] does not equal output[output.length - 1] AND equals 0;
+  if(array[0] === 0 && array[0] !== output[output.length - 1]){
+    output.push(array[0]);
+  }
+  else if(array[0] !== 0){
+    output.push(array[0]);
+  }
+  //return function minimizeZeros function with first element of array removed
+  return minimizeZeroes(array.slice(1), output);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, output = []) {
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
