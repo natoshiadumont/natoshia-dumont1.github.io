@@ -213,7 +213,20 @@ var reverse = function(string, output = []) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-
+  //create new string with all spaces replaced with an empty string
+  let newString = string.replace(/\s+/g,"");
+  console.log(newString);
+  //base
+  //if string.length equals zero
+  if(newString.length <= 1){
+    return true;
+  }
+  //recursion
+  //determine if first and last string are strictly equal
+  if(newString[0].toUpperCase() === newString[newString.length - 1].toUpperCase()){
+    return palindrome(newString.slice(1, newString.length - 1));
+  }
+    return false;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -545,13 +558,97 @@ var minimizeZeroes = function(array, output = []) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array, output = []) {
+var alternateSign = function(array, output = [], count = 1) {
+  //base
+  //if array is empty, return output
+  if(array.length === 0){
+    return output;
+  }
+  //recursion
+  //determien if count is an odd number
+  if(count % 2 !== 0){
+    //determine if array[0] is a postive number
+    if(array[0] > 0){
+      //push array[0] into output array
+      output.push(array[0]);
+      //increment count
+      count++;
+      //return function call on alternateSign with first element sliced off
+      return alternateSign(array.slice(1), output, count)
+    }
+    else{
+      //push -array[0] into output
+      output.push(-array[0]);
+      count++;
+      return alternateSign(array.slice(1), output, count);
+    }
+    //increment count
+    //return function call alternateSign 
+  }
+
+  //detrmine if count is an even number
+  else if(count % 2 === 0){
+    //determine if array[0] is a negative number
+    if(array[0] < 0){
+      //push array[0] into output array
+      output.push(array[0]);
+      //increment count
+      count++;
+      //return function call on alternateSign with first element sliced off
+      return alternateSign(array.slice(1), output, count)
+    }
+    //determine if array[0] is a postive number
+    else if(array[0] > 1){
+        //push -array[0] into output
+        output.push(-array[0]);
+        count++;
+        return alternateSign(array.slice(1), output, count);
+    }
+
+  }
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, output = '') {
+  //create variable input with value of str.spli
+  console.log(output);
+  
+  //base
+  //determine if input.length === 0; if so, return output string
+  if(str.length === 1){
+    output += str[0];
+    return output;
+  }
+  //recursion
+  
+  /*create switch statment that replaces string numerals to the spelled word */
+  switch(str[0]){  
+    case '0': output += 'zero';
+    break;
+    case '1': output += 'one';
+    break;
+    case '2': output +='two';
+    break;
+    case '3': output += 'three';
+    break;
+    case '4': output += 'four';
+    break;
+    case '5': output += 'five';
+    break;
+    case '6': output += 'six';
+    break;
+    case '7': output += 'seven';
+    break;
+    case '8': output += 'eight';
+    break;
+    case '9': output += 'nine';
+    break;
+    default: output += str[0];
+  }
+  //return calling the function numToText with str[0] sliced off
+  return numToText(str.slice(1), output);
 };
 
 // *** EXTRA CREDIT ***
