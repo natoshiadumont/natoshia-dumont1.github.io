@@ -2,15 +2,39 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(num1, num2, step = 1, output = []) {
+    //base
+  //if both numbers are equal, return output
+  if(num1 === num2 || step <= 0){
+    return output;
+  }
+  if(num2 - step === num1){
+    output.push(num1, num2);
+    return output;
+  }
+  //recursion
+  //push the value of num1 into output
+  output.push(num1);
+  //return function range 
+  
+  return range(num1 + step, num2, step, output);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
+function sum(array, total = 0) {
+  //base
+  //if array's length is 0, return total
+  if(array.length === 0){
+  return total;
+  }
+  //recursion
+  //add value of array[0] to itself
+  total += array[0];
+  //return function call with array[0] sliced off
+  return sum(array.slice(1), total);
 
 }
 
@@ -18,16 +42,25 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
-
+function reverseArray(array, output = []) {
+  //base
+  //if array's length is 0, return output
+  if(array.length === 0){
+    return output;
+  }
+  //recursion
+  //unshift array[0] into output;
+  output.unshift(array[0]);
+  //return function call with array[0]sliced off
+  return reverseArray(array.slice(1), output);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array, output = []) {
+ 
 }
 
 ////////////////////////////////////////////////////////////////////////////////
