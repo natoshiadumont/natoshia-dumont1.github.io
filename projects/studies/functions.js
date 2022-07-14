@@ -50,11 +50,23 @@
 * used to create statments when DECLARING/DEFINING the function
 * variables that act as placeholders for the arguments once the function is called
 *  (in the subtract function, your parameters are num1 and num2 )
-* ARGUMENTS
+*/
+function add(x, y){
+   return x + y;
+}
+// x and y are the considered arguments, because they'll take the place of real values
+/***
+ARGUMENTS
 * the ACTUAL DATA OR CODE that will be used during the function CALL/INVOCATION
 * this data will be used to perform the function tasks or expressions
 *  (in the combineStrings function, your arguments are the strings 'Disney' and 'land')
 */
+add(1, 2); 
+//1 and 2 are considered arguments 
+//because the are the actual values the function will evaluate
+
+
+
 
 //SCOPE
 //DEFINITION- the current enviroment/context of the code

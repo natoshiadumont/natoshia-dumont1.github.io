@@ -37,13 +37,12 @@ console.log(luckyNumber); //-> 7
 //VAR
 //global or functionally scoped
 //EXAMPLE 1: using var, the following variable is availale to the entire program
-var luckyNumber = 11;
-console.log(luckyNumber);//this will log the number 11
-//EXAMPLE 2: using var in a function, you will only have access to the variable when calling that given function
-function luckyNumPlusOne(number) {
-   var result; //result is in the luckyNumPlusOne function's scope!
-   result = number + 1;
-   return result;
+
+if(luckyNumber === 7){
+   console.log(true);
+}
+else{
+   console.log(false);
 }
 console.log(result); //this returns undefined since you can't access this variable outside of the given function
 console.log(luckyNumPlusOne(luckyNumber)); // logs the number 12
@@ -80,13 +79,9 @@ console.log(vary);// now the variable message has been changed to the string, 'Y
 const permanentVal = 100; //the variable permanentVal has be assigned the value of 100 as a constant IN the global scope
 console.log(permanentVal);// this will log the num 100 to the console. You can access this constant value globally
 //EXAMPLE 2 - CONST varales are locally scoped
-function localVal() {
-   const myVal = 10; //myVal was declared with the keyword const in the scope of the funciton localVal
-   return myVal;
-}
-console.log(myVal); //This will throw that myVal is not declared because it only exist in the scope of the localVal function
+permanentVal = 20
+//This will throw that myVal is not declared because it only exist in the scope of the localVal function
 //I can access its vlaue by calling the function localVal
-console.log(localVal());// this will print the value of myVal, which is 10
 //EXAMPLE 3- YOU CAN NOT REASSIGN A CONST
 //once a constant is declared, it's value can not be reassigned
 const canSwim = true; //canSwim assigned with the constant value of true

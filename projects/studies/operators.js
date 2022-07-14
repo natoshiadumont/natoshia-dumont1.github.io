@@ -55,7 +55,7 @@
          console.log(12 / 4); //3
 
       // Remainder Operator (%) - returns the remainder of the operands once they've been divided
-         console.log(12 / 5); // 2
+         console.log(12 % 5); // 2
 
 
 //COMPARISON OPERATORS - compares its operands and returns a Boolean (true or false) value based on wheter the comparison is true or false
