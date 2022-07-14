@@ -56,23 +56,24 @@
 //- once the expression has a matching case clause, it will execute a statement associated with that case
 //- you can even have multiple case clauses that will execute the same statement
 //EXAMPLE
-   let expression = 'Balance';
+   let balance = 'Balance';
    //this switch statment will search for a matching case clause for the string 'Balance'
+   switch (balance) {
+      case 'Withdraw':
+      case 'Deposit':
+         console.log('Enter a dollar amount to continue.');
+         break;
+      default: // this default statment will exicute if there are NO MATCHES to any case clauses.
+      console.log('Our system does not recognize your request. Please try again.');
+   } //prints the default message since there is no match for balance
+
+   let 
    switch (expression) {
       case 'Withdraw':
       case 'Deposit':
          console.log('Enter a dollar amount to continue.');
          break;
-      case 'Recent Transaction':
-      case 'Transactions':
-         console.lob('Verify the last four digits of your account number to continue.');
-         break;
-      case 'Balance': //matching case clause
-      case 'Current Balance':
-      case 'Email Balance':
-         //since the matching case clause was found in this set of cases, it will log the message below.
-         console.log('Thank you for your business! Your balance will be available shortly.');
-         break;
       default: // this default statment will exicute if there are NO MATCHES to any case clauses.
       console.log('Our system does not recognize your request. Please try again.');
    }
+

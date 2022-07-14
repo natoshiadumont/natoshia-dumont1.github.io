@@ -1,102 +1,103 @@
 /**
  * OPERATORS
- * Definition- symbols used to perform operations on values and variables
+ * Operators are symbol(s) in a program that perform actions or return something on values and variables
  * Operands- the variables and values that the operators are being used on
  */
 //ASSIGNMENT OPERATORS
-   // An assignment operator that assigns value to it's left operand base on the value of its righ operand
+   //Assigns/reassigns the value of a given variable
    //EXAMPLES: 
-      //Assingment (=) - assigns the variable assign1 to the number value 12
-      var assign1 = 12; 
+      //Assingment (=) - assigns the variable assignOp1 the string 'hello'
+      var assignOp1 = 'hello'; 
 
-      //Addition assignment (+=) - reassigns the value of the variable to itself plus a new value added
-         var assign2 = 5; // assign2 is assigned the initial value of 5;
-         assign2 += 10; //now assign2 is reassigned its initial value 5, plus ten
-         console.log(assign2); //=>15
+      //Addition assignment (+=) - reassigns the value of the variable to itself along with another value
+         var assignOp2 = 20; // initial value 20
+         assign2 += 5; // => 20 + 5
+         console.log(assignOp2); //25
 
-      //Subtraction Assignment (-=) - reassigns the value of the variable to itself minus a specific value
-         var assign3 = 10; //assign 4 is assigned the initial value of 10
-         assign3 -= 3; //now assign3 will equal it's initial value minus 3
-         console.log(assign3); //=> 7
+      //Subtraction Assignment (-=) - reassigns the value a given value subtracted from an original value
+         var assignOp3 = 100; //initial value of 100
+         assignOp3 -= 25; // => 100 - 25
+         console.log(assign3); //=> 75
 
-      //Multiplication assignment (*=) - reassign the initial value of a variable to itself multiplied by a given value
-         var assign4 = 5;
-         assign4 *= 20; // assign4 will be 5 * 20
-         console.log(assign4); //=> 100
+      //Multiplication assignment (*=) - reassigns the value to itself multiplied by a given value
+         var assignOp4 = 6; //initial values of 6
+         assignOp4 *= 9; // => 6 * 9;
+         console.log(assignOp4); //=> 54
 
-      //Division Assignment (/=) - reassign the initial value of variable divided by a given value
-         var assign5 = 700;
-         assign5 /= 10; // - assign5 will be now equal 700 / 10
-         console.log(assign5); //=> 7
-      //Remainder Assignment (%=) - reassign the inital value the remainder after dividing by a given value
-         var assign6 = 5;
-         assign5 %= 2; // will divded 5 by two, and returns the remaining value
-         console.log(assign6); //=> 1
+      //Division Assignment (/=) - reassign the value to itself divided by a given value
+         var assignOp5 = 1600; //initial value of 1600
+         assignOp5 /= 200; // 1600/ 200
+         console.log(assignOp5); //=> 8
 
-      //Exponential Assignment (**=) - raises the value of variable to the power of the right operand
-         var assign7 = 4;
-         console.log(assign7 **= 3); // the same as 4 * 4 * 4 
-         //=> 64 will log to the console 
+      //Remainder Assignment (%=) - reassign the inital value  to the remainder of itself divided by a given number
+         var assignOp6 = 55; //initial value of 55
+         assignOp6 %= 25; // 55 / 25 => 2 (with a REMAINDER OF 5)
+         console.log(assignOp6); //=> 5
+
+      //Exponential Assignment (**=) - reassigns variable by multiplying it by itself a given number of times
+         var assignOp7 = 2;
+         assignOp7 **= 4 // the same as 2 * 2 * 2 * 2
+         console.log(assignOp);//  => 16
 
 
 //ARITHMETIC OPERATORS - takes numerical values as their operands and return a single numerical value
    //EXAMPLES
-      // Addition Operator (+) - add the operands together
-         console.log(4 + 1); // 5
+      // Addition Operator (+) - returns sum of the operands
+         console.log(2 + 7); // 9
 
-      // Subtration Operator (-) - subracts the second operand from the first operand
-         console.log(7 - 4); // 3
+      // Subtration Operator (-) - returns the difference of operands
+         console.log(100 - 1); // 99
 
-      // Mulitiplication Operator (*) - multiplies both operands
-         console.log(6 * 3); // 18
+      // Mulitiplication Operator (*) - returns the product of operands
+         console.log(10 * 10); // 100
 
-      // Division Operator (/) - divides the first value by the second operand
-         console.log(50 / 25); //2
+      // Division Operator (/) - returns the quotient of given operands
+         console.log(12 / 4); //3
 
-      // Remainder Operator (%) - returns the remainder once the first operand is divided by the second operand
-         console.log(13 / 5); // 3
+      // Remainder Operator (%) - returns the remainder of the operands once they've been divided
+         console.log(12 / 5); // 2
 
 
-//COMPARISON OPERATORS - compares its operands and returns a logical (boolean) value based on wheter the comparison is true or false
-   // the operands can be numerical, a string, logical, or object values
+//COMPARISON OPERATORS - compares its operands and returns a Boolean (true or false) value based on wheter the comparison is true or false
+   
    //EXAMPLES
-      //Equal (==) - returns true if the operands are equal; otherwise return false
-         console.log(5 == 5);// true
-         console.log((5 == '5')); //true
-         console.log('hello' == 'hey') //false
+      //Equal (==) - returns true if the operands are loosley equal; otherwise return false
+         console.log(10 == 10);// true
+         console.log((1 == '1')); //true
+         console.log('New Orleans' == 'NOLA') //false
 
       //Not Equal (!=) - returns true if the operands are not equal; otherwise return false
-         console.log(4 != 10); //true
-         console.log('hey' != 'hello'); //true
-         console.log(10 != '10') //false
+         console.log(100 != 10); //true
+         console.log('what' != 'WHAT'); //true
+         console.log('how' != 'how are you') //false
 
       //Strict Equal (===) - returns true if operands are equal AND of the same type
-         console.log(10 === 10); //true
-         console.log(10 === '10'); //false
-         console.log(10 === 'ten'); //false
+         console.log('Scooby'=== 'Scooby'); //true
+         console.log('Scooby' === 'scooby'); //false
+         console.log('Scooby' === 'Doo'); //false
       
       //Strict Not Equal (!==) - returns true if the operands are the same type but not equal, or are different datatypes
-         console.log(10 !== 'ten'); //true
-         console.log(10 !== '10'); //true
-         console.log(10 !== 10); //false
+         console.log('Disney' !== 'land'); //true
+         console.log('Disney' !== 'disney'); //true
+         console.log('howdy' !== 'howdy'); //false
 
       //Greater than (>) - returns true if the left operand is greater than or equal to the right operand
-         console.log(2 > 0); //true
-         console.log(50 > 100); //false
+         console.log(55 > 50); //true
+         console.log(2 > 3); //false
 
       //Less than (<) - returns true if the left operand is less than the right operand
-         console.log(20 < 22); //true
-         console.log(7 < 3); //false
+         console.log(22 < 45); //true
+         console.log(15 < 1); //false
 
       //Greater than or equal (>=) - returns true if the left operand is less than or equal to the righ operand
-         console.log(11 >= 10); //true
-         console.log(10 >= 10); //true
-         console.log(5 >= 10); //false
+         console.log(100 >= 99); //true
+         console.log(21 >= 21); //true
+         console.log(45 >= 46); //false
 
       //Less than or equal (<=) - returns true if the left operand is less than or equal to the right operand
-         console.log(20 <= 20); //true
          console.log(7 <= 20); //true
-         console.log(200 <= 199); //false
+         console.log(50 <= 50); //true
+         console.log(600 <= 6); //false
 
 //LOGICAL OPERATORS - typically used with boolean (logical) values; when the yare, they return a boolean value
    //- However the Logical AND (&&) and || operators return a boolean value after comparing logical expressions
@@ -127,11 +128,11 @@
          console.log(typeOf (greeting)); // 'object'
 
 //TERNARY(CONDITIONAL) OPERATOR (a ? b: c)
-   //the only operator that takes in three operands
+   //the single operator that takes three operands
    //Syntax => condition ? value1: value2
    //If condition is true, the operator will have the value of value1; otherwise, it has the value of value2
    //EXAMPLES
-      var num1 = 15;
-
-      var greaterThanZero = (num1 > 0) ?  'greater than zero' : 'less than zero'; // returns 'greater than zero
-      var lessTest = (num1 < 0) ?  'less than zero' : 'greater than zero'; // returns greater than zero
+      var negNum = -5;
+      var posNum = 22;
+      var greaterThanZero = (negNum > 0) ?  'greater than zero' : 'less than zero'; // returns 'less than zero'
+      var isPositive = (posNum > 0) ?  true : false; // returns true

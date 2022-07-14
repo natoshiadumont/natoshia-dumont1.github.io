@@ -1,7 +1,8 @@
 /**
  * FUNCTIONS
+ * funtions are the building block of Javascript. They are the key to succinct, non-repetetive code
  * DEFINITION- reusable code in the form of a set of statements that perform a task or calculates a value.
- * there must be a relationshipt between the input of of the function and the output
+ * there must be a relationship between the input of of the function and the output
  
 */
 
@@ -11,9 +12,7 @@
 //FUNCTION DECLARATION/DEFINITION- this phase is where you actually create the function itself
    //you must start the declartation with the keyword 'function'
       //SYNTAX- 1. name of the function 2. list of parameters 3. statments that define the function
-      //* PARAMETERS are placeholders for the data we will need in order to perform the set of statments in our function
-      // when making our function, we can use our parameters as variables to make our statments calculate or perform the way we'd like
-      // a function can have as many parameters as needed, or even no parameters at all! It all depends on what your function will be used for
+      //* PARAMETERS- essentially variables that take the place of values once the function is invoked
 
       //How do we specify the inputs and outputs of our function
       //Specify input- give your function parameters to specify the number and types of data a function will need to work as predicted
@@ -21,7 +20,7 @@
       //Also, test your functions out by logging to determine if the function operates as you've expected 
 
       //NAMED FUNCTION- A function that is declared with the function keyword and a name (gets hoisted to the top of program)
-      function combineStrings(string1, string2) { // => function declaration
+      function addition(num1, num2) { // => function declaration
         //statements that will define the function
         console.log(string1 + string2);
      }
